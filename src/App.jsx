@@ -1,15 +1,13 @@
-import Contact from './component/Contact';
-import Footer from './component/Footer';
-import Header from './component/Header';
-import Hero from './component/Hero';
+
 
 const App = () => {
+
+  let status = false;
+
   return (
     <div>
-      <Header />
-      <Hero />
-      <Contact />
-      <Footer />
+      <h1>Login Status</h1>
+      {status && <button>Logout</button>}
     </div>
   );
 };
