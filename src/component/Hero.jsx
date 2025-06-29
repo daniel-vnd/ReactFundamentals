@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Hero = () => {
+const Hero = (props) => {
     return (
         <div>
-            <img src="https://cdn.fs.teachablecdn.com/uCoqmkHsS5OW2rTgbQIo" alt="" />
+            <h1>{props.title}</h1>
         </div>
     );
 };

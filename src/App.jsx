@@ -1,25 +1,14 @@
 
-// 24. JSX Conditional Rendering Using Immidiatly Invoked Function
+import Hero from './component/Hero';
+
+// 26. Passing simple string to child component
 
 const App = () => {
-
-  let status = true;
-
-  return (
-    
-    <div>
-      <h1>Login Status</h1>
-      {(() => {
-
-        if (status == true) {
-          return <button>Logout</button>
-        } else {
-          return <button>Login</button>
-        }
-
-      })()}
-    </div>
-  );
+	return (
+		<div>
+			<Hero title="Learn with Kazi Ariyan" />
+		</div>
+	);
 };
 
 export default App;
