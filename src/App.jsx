@@ -6,7 +6,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import NotFound from './pages/NotFound';
 
-// 30. Managing Form Submit
+// 32. Link And NavLink For Router
 
 const App = () => {
 
