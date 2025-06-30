@@ -1,4 +1,5 @@
 import React from 'react';
+import Menu from '../component/Menu';
 
 const ContactPage = () => {
     return (
@@ -9,4 +10,4 @@ const ContactPage = () => {
     );
 };
 
-export default ContactPage;<h1>This is the Contact Page</h1>
+export default ContactPage;
