@@ -1,7 +1,7 @@
 
 import Hero from './component/Hero';
 
-// 28. Passing function to child component
+// 29. Managing Click Event
 
 const App = () => {
 	const BtnClick = () => {
@@ -10,7 +10,9 @@ const App = () => {
 
 	return (
 		<div>
-			<Hero item={BtnClick} />
+			<button onClick={() => {
+				alert('hi ariyan')
+			}}>Submit</button>
 		</div>
 	);
 };
