@@ -1,17 +1,20 @@
 
 import Hero from './component/Hero';
 
-// 29. Managing Click Event
+// 30. Managing Form Submit
 
 const App = () => {
 
-	const Demo = () => {
-		alert('hi ariyan')
-	}
+	const PostFormData = (event) => {
+		event.preventDefault(); // will prevent the page to reload
+	};
 
 	return (
 		<div>
-			<button onClick={Demo}>Submit</button>
+			<form onSubmit={PostFormData}>
+				<input placeholder="Name" />
+				<button type="submit">Submit</button>
+			</form>
 		</div>
 	);
 };
