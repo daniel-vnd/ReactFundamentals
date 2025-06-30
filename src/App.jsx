@@ -1,12 +1,19 @@
 
 import Hero from './component/Hero';
 
-// 26. Passing simple string to child component
+// 27. Passing object to child component
 
 const App = () => {
+	const ItemObj = {
+		name: 'Kari Ariyan',
+		age: 35,
+		city: 'USA'
+	};
+
+
 	return (
 		<div>
-			<Hero title="Learn with Kazi Ariyan" />
+			<Hero item={ItemObj} />
 		</div>
 	);
 };
