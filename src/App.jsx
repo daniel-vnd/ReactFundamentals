@@ -1,19 +1,16 @@
 
 import Hero from './component/Hero';
 
-// 27. Passing object to child component
+// 28. Passing function to child component
 
 const App = () => {
-	const ItemObj = {
-		name: 'Kari Ariyan',
-		age: 35,
-		city: 'USA'
-	};
-
+	const BtnClick = () => {
+		alert("Hello Ariyan!");
+	}
 
 	return (
 		<div>
-			<Hero item={ItemObj} />
+			<Hero item={BtnClick} />
 		</div>
 	);
 };
