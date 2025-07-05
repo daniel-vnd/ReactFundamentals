@@ -1,20 +1,25 @@
 import { useRef } from 'react';
 
-// 39. [Hook] useRef - working CSS 
+// 40. [Hook] useRef - caching expensive computation 
 
 const App = () => {
-	let myHeadLine = useRef();
+	let APIData = useRef(null);
+	let myPTag = useRef();
 	
-	const change = () => {
-		myHeadLine.current.classList.remove('text-success');
-		myHeadLine.current.classList.add('text-danger');
+	const fetchData = async () => {
+		const response = await fetch("https://dummyjson.com/products");
+		APIData.current = await response.json();
+	}
+
+	const showData = () => {
+		myPTag.current.innerText = JSON.stringify(APIData.current);
 	}
 
 	return (
 		<div>
-			<h1 className="text-success" ref={myHeadLine}>This is head Line</h1>
-			
-			<button onClick={change}>Click</button>
+			<p ref={myPTag}></p>
+			<button onClick={fetchData}>Call Api</button>
+			<button onClick={showData}>Show Data</button>
 		</div>
 	)
 
