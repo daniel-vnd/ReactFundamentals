@@ -1,28 +1,16 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 
-// 40. [Hook] useRef - caching expensive computation 
+// 41. [Hook] useState - understand inside 
 
 const App = () => {
-	let APIData = useRef(null);
-	let myPTag = useRef();
+	const [number, setNumber] = useState(1);
 	
-	const fetchData = async () => {
-		const response = await fetch("https://dummyjson.com/products");
-		APIData.current = await response.json();
-	}
-
-	const showData = () => {
-		myPTag.current.innerText = JSON.stringify(APIData.current);
-	}
-
 	return (
 		<div>
-			<p ref={myPTag}></p>
-			<button onClick={fetchData}>Call Api</button>
-			<button onClick={showData}>Show Data</button>
+			<h1>Number: {number}</h1>
+			<button onClick={() => setNumber(number + 1)}>Click</button>
 		</div>
 	)
-
 };
 
 export default App;
