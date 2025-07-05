@@ -4,20 +4,15 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import NotFound from './pages/NotFound';
 
-// 34. Passing Parameter Via Navigation
+// 36. [Hook] useRef InnerText InnerHtml
 
 const App = () => {
 
+	let myHeadLine = document.getElementById('myHeadLine');
+
 	return (
 		<div>
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<HomePage/>}/>
-					<Route path="/about/:id/:name" element={<AboutPage/>}/>
-					<Route path="/contact" element={<ContactPage/>}/>
-					<Route path="*" element={<NotFound/>}/>
-				</Routes>			
-			</BrowserRouter>
+			<h1 id="myHeadLine"></h1>
 		</div>
 	);
 };
