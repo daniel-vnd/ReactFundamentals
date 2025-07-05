@@ -1,18 +1,19 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import NotFound from './pages/NotFound';
+import { useRef } from 'react';
 
 // 36. [Hook] useRef InnerText InnerHtml
 
 const App = () => {
 
-	let myHeadLine = document.getElementById('myHeadLine');
+	let myHeadLine = useRef();
+
+	const change = () => {
+		myHeadLine.current.innerHTML = '<ul><li>A</li><li>B</li></ul>'
+	}
 
 	return (
 		<div>
-			<h1 id="myHeadLine"></h1>
+			<h1 ref={myHeadLine}></h1>
+			<button onClick={change}>Click</button>
 		</div>
 	);
 };
