@@ -1,44 +1,40 @@
 import { useState } from 'react';
 
-// 42. [Hook] useState - working with imutable object 
+// 43. [Hook] useState - working with imutable array
 
 const App = () => {
-
-	const [myObj, setMyObj] = useState({
-		key1: "Ariyan 1",
-		key2: "Ariyan 2",
-		key3: "Ariyan 3",
-	});
+	const [list, setList] = useState(['a', 'b']);
 	
-	const change = () => {
-		// Update all the object values
-		setMyObj({
-			key1: "Kazi Ariyan 1",
-			key2: "Kazi Ariyan 2",
-			key3: "Kazi Ariyan 3",
+	const [item, setItem] = useState("");
 		
-		});
+	const AddToList = () => {
+		list.push(item);
 		
-		// Update a specific key of the object
-		setMyObj(previousObj => ({
-			 ...previousObj,
-			 key1: "hi how are you"
-		}));
-		
-		// Update multiple keys of the object
-		setMyObj(previousObj => ({
-			 ...previousObj,
-			 key1: "hi how are you",
-			 key2: "what is your name"
-		}));
+		setList([...list]);
 	}
-	
+		
 	return (
 		<div>
-			<h1>Number: {myObj.key1}</h1>
-			<h1>{myObj.key2}</h1>
-			<h1>{myObj.key3}</h1>
-			<button onClick={change}>Change</button>
+			<table>
+				<tbody>
+					{
+						list.length !== 0 ? (
+							list.map((element, index) => {
+								return (
+									<tr>
+										<td>{element}</td>
+										<td><button>Remove</button></td>
+									</tr>
+								)
+							})							
+						) : (<tr></tr>)
+					}
+				</tbody>
+			</table>
+			<p>{item}</p>
+			<p>{list.length}</p>
+			<input placeholder='Item' onChagne={(e) => setItem(e.target.value)} />
+			<button onClick={AddToList}>Change</button>
 		</div>
 	)
 };
