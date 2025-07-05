@@ -1,41 +1,25 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 
-// 46. [Hook] useState - managing like pro part 2
+// 47. [Hook] useEffect - understanding arguments and uses
 
 const App = () => {
+	// executes twice and on each modificatio of the state
+	// when we use "React.StrictMode" the component will be loaded 2 times
+	useEffect(() => {
+		console.log("Hi Ariyan");
+	});
 
-	let [formObject, setFormObject] = useState({fName:"",lName:"",city:"",gender: ""});
-
-	const InputOnChange = (property, value) => {
-		setFormObject((previousObj) => ({
-			...previousObj, 
-			[property]: value
-		}));
-	}
-	
-	const FormSubmit = (e) => {
-		e.preventDefault();
-		
-		console.log(formObject);
-	}
+	// executes only when the components loads and when the value that is between the brackets "[]" will change
+	useEffect(() => {
+		console.log("Hi Ariyan");
+	}, [4]);
 	
 	return (
-		<div className='container'>
-		<form onSubmit={FormSubmit}>
-			<input onChange={(e) => {InputOnChange("fName", e.target.value)}} value={formObject.fName} placeholder='First Name' />
-			<input onChange={(e) => {InputOnChange("lName", e.target.value)}} value={formObject.lName} placeholder='Last Name' />
-			<select onChange={(e) => {InputOnChange("city", e.target.value)}} value={formObject.city}>
-				<option value="">Choose City</option>
-				<option value="Rajbari">Rajbari</option>
-				<option value="Dhaka">Dhaka</option>
-			</select>
-			<input onChange={() => {InputOnChange("gender", "Male")}} checked={formObject.gender === "Male"} type="radio" name="gender" /> Male
-			<input onChange={() => {InputOnChange("gender", "Female")}} checked={formObject.gender === "Female"} type="radio" name="gender" /> Female
-			<br />
-			<button type='submit'>Submit</button>
-		</form>
+		<div>
+			
 		</div>
 	)
+
 };
 
 export default App;
