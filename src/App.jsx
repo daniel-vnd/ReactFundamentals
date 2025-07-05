@@ -1,28 +1,23 @@
 import { useRef } from 'react';
 
-// 38. [Hook] useRef - working with input elements
+// 39. [Hook] useRef - working CSS 
 
 const App = () => {
-
-
-	let firstName = useRef();
-	let lastName = useRef();
+	let myHeadLine = useRef();
 	
 	const change = () => {
-		let fName = firstName.value
-		let lName = lastName.value
-		
-		alert(fName + " " + lName);
+		myHeadLine.current.classList.remove('text-success');
+		myHeadLine.current.classList.add('text-danger');
 	}
 
 	return (
 		<div>
-			<input ref={(a) => firstName=a} placeholder='First Name' /> <br />
-			<input ref={(a) => lastName=a} placeholder='Last Name' /> <br />
+			<h1 className="text-success" ref={myHeadLine}>This is head Line</h1>
 			
 			<button onClick={change}>Click</button>
 		</div>
 	)
+
 };
 
 export default App;
