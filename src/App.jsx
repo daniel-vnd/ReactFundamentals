@@ -1,18 +1,20 @@
 import { useRef } from 'react';
 
-// 36. [Hook] useRef - without current
+// 37. [Hook] useRef - working with attributes
 
 const App = () => {
 
-	let myHeadLine = useRef();
+	let myImg = useRef();
 
 	const change = () => {
-		myHeadLine.innerHTML = '<ul><li>A</li><li>B</li></ul>'
+		myImg.current.src = 'https://placehold.co/600x400/000000/FFF';
+		myImg.current.setAttribute('height', '200px');
+		myImg.current.setAttribute('width', '300px');
 	}
 
 	return (
 		<div>
-			<h1 ref={(h1) => myHeadLine=h1}></h1>
+			<img ref={myImg} src='https://placehold.co/600x400'></img>
 			<button onClick={change}>Click</button>
 		</div>
 	);
