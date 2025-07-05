@@ -1,23 +1,28 @@
 import { useRef } from 'react';
 
-// 37. [Hook] useRef - working with attributes
+// 38. [Hook] useRef - working with input elements
 
 const App = () => {
 
-	let myImg = useRef();
 
+	let firstName = useRef();
+	let lastName = useRef();
+	
 	const change = () => {
-		myImg.current.src = 'https://placehold.co/600x400/000000/FFF';
-		myImg.current.setAttribute('height', '200px');
-		myImg.current.setAttribute('width', '300px');
+		let fName = firstName.current.value
+		let lName = lastName.current.value
+		
+		alert(fName + " " + lName);
 	}
 
 	return (
 		<div>
-			<img ref={myImg} src='https://placehold.co/600x400'></img>
+			<input ref={firstName} placeholder='First Name' /> <br />
+			<input ref={lastName} placeholder='Last Name' /> <br />
+			
 			<button onClick={change}>Click</button>
 		</div>
-	);
+	)
 };
 
 export default App;
